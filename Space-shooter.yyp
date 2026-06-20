@@ -46,6 +46,7 @@
   "name":"Space-shooter",
   "resources":[
     {"id":{"name":"oEscudo","path":"objects/oEscudo/oEscudo.yy",},},
+    {"id":{"name":"oExplosao","path":"objects/oExplosao/oExplosao.yy",},},
     {"id":{"name":"oInimigo_1","path":"objects/oInimigo_1/oInimigo_1.yy",},},
     {"id":{"name":"oParticula","path":"objects/oParticula/oParticula.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
@@ -69,6 +70,7 @@
     {"id":{"name":"spr_escudo_ativo","path":"sprites/spr_escudo_ativo/spr_escudo_ativo.yy",},},
     {"id":{"name":"spr_escudo","path":"sprites/spr_escudo/spr_escudo.yy",},},
     {"id":{"name":"spr_explosao_powerup","path":"sprites/spr_explosao_powerup/spr_explosao_powerup.yy",},},
+    {"id":{"name":"spr_explosao","path":"sprites/spr_explosao/spr_explosao.yy",},},
     {"id":{"name":"spr_inimigo_1","path":"sprites/spr_inimigo_1/spr_inimigo_1.yy",},},
     {"id":{"name":"spr_inimigo_2","path":"sprites/spr_inimigo_2/spr_inimigo_2.yy",},},
     {"id":{"name":"spr_inimigo_3","path":"sprites/spr_inimigo_3/spr_inimigo_3.yy",},},

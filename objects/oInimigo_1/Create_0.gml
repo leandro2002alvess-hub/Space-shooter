@@ -28,3 +28,46 @@ tiro_inimigo = function()
 
     }
 }
+
+//Criando o sistema de colisão do inimigo com o player
+colidindo_player = function()
+{
+     //Se meu colidir com meu player
+    if(instance_place(x, y, oPlayer))
+    {
+        //ele vai criar o efeito da particula
+        instance_create_layer(x, y, "Detalhes", oExplosao)
+        
+        
+        //iremos verificar se temos a instancia escudo existindoWWAW
+        if(instance_exists(oEscudo))
+        {
+            //se tivermos ela ativa então ela será destruida pelo impacto do tiro
+            instance_destroy(oEscudo)
+        }
+        else
+        {
+            //iremos criar um novo else e dentro dele colocamos um if
+            //ele vai ver se meu escudo e maior que zero
+            if(oPlayer.escudo > 0)
+            { 
+                //se for então ele criará novos escudos
+                instance_create_layer(x, y, "Player", oEscudo)
+                oPlayer.perde_escudo()
+                //toda vez que tiver colisão com o tiro então ele perde um escudo
+            }
+            else 
+            {
+                if(oPlayer.player_invencivel == false)
+                {
+                    oPlayer.perde_vida()
+                    
+                }
+                
+            }
+        }
+        //logo apos isso ele será destruido
+        instance_destroy()
+    }
+    
+}

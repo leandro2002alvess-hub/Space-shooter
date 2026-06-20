@@ -9,7 +9,7 @@ escudo = 3
 //deixando o player com o status de invencivel desligado ou seja false
 player_invencivel = false
 invencivel = 0
-invencivel_max = 90
+invencivel_max = 60
 
 
 //Criando o sistema de movimentos do player
@@ -148,6 +148,6 @@ perde_escudo = function()
     escudo--;
     if(escudo <= 0)
     {
-        image_speed = 0
+        //image_speed = 0
     }
 }
