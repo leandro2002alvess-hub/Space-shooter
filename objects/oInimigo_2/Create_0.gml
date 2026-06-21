@@ -92,8 +92,6 @@ morte_inimigo = function()
         
 }
 
-
-
 //Criando um sistema para ver o inimigo foi criado em sequencia
 feito_em_sequence = in_sequence
 
