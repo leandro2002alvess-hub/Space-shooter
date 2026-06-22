@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"Sound2",
+  "%Name":"snd_shield",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.5234694,
+  "duration":0.29315192,
   "exportDir":"",
-  "name":"Sound2",
+  "name":"snd_shield",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Sound2.wav",
+  "soundFile":"snd_shield.ogg",
   "volume":1.0,
 }

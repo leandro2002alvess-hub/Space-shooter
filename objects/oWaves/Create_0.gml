@@ -18,7 +18,6 @@ cria_waves_timer_limite = 100
 sequence_ativa = noone
 
 //Informando quando uma onde deve ser criada por metodo
-//Informando quando uma onda deve ser criada por método
 cria_waves = function()
 {
     // Se a tela estiver vazia, não importa se foi por morte ou fuga!

@@ -17,6 +17,7 @@ acerta_player = function()
     //Se meu colidir com meu player
     if(instance_place(x, y, oPlayer))
     {
+        audio_play_sound(snd_explosao, 1, 0)
         //ele vai criar o efeito da particula
         instance_create_layer(x, y, "Detalhes", oParticula)
         

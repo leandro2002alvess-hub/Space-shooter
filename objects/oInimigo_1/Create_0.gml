@@ -22,7 +22,7 @@ tiro_inimigo = function()
         cooldown_tiro_maximo_inimigo = choose(irandom_range(30, 55), irandom_range(60, 195), irandom_range(60, 140));
         //_tiro.direction = 270
         //fazendo o som do tiro
-        audio_play_sound(snd_tiro, 1, 0)
+        audio_play_sound(snd_tiro_1, 1, 0)
         //Resetando a minha variavel do tiro
         cooldown_tiro_inimigo = 0
 
@@ -44,6 +44,7 @@ colidindo_player = function()
         {
             //se tivermos ela ativa então ela será destruida pelo impacto do tiro
             instance_destroy(oEscudo)
+            audio_play_sound(snd_shield_down, 1, 0)
         }
         else
         {
@@ -52,6 +53,7 @@ colidindo_player = function()
             if(oPlayer.escudo > 0)
             { 
                 //se for então ele criará novos escudos
+                audio_play_sound(snd_shield, 1, 0)
                 instance_create_layer(x, y, "Player", oEscudo)
                 oPlayer.perde_escudo()
                 //toda vez que tiver colisão com o tiro então ele perde um escudo
@@ -77,7 +79,7 @@ morte_inimigo = function()
 {
     //ele vai criar o efeito da particula
     instance_create_layer(x, y, "Detalhes", oExplosao)
-    
+    audio_play_sound(snd_explosao, 1, 0)
     //Criando um sistema de chances para dropar meu powerup
     var _chance = random(100)
     //Criando um if para deixar aleatorio os drops do powerup

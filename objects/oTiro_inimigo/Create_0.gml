@@ -17,7 +17,6 @@ acerta_player = function()
     //Se meu colidir com meu player
     if(instance_place(x, y, oPlayer))
     {
-        //ele vai criar o efeito da particula
         instance_create_layer(x, y, "Detalhes", oParticula)
         
         
@@ -26,6 +25,7 @@ acerta_player = function()
         {
             //se tivermos ela ativa então ela será destruida pelo impacto do tiro
             instance_destroy(oEscudo)
+            audio_play_sound(snd_shield_down, 1, 0)
         }
         else
         {
@@ -35,6 +35,7 @@ acerta_player = function()
             { 
                 //se for então ele criará novos escudos
                 instance_create_layer(x, y, "Player", oEscudo)
+                audio_play_sound(snd_shield, 1, 0)
                 oPlayer.perde_escudo()
                 //toda vez que tiver colisão com o tiro então ele perde um escudo
             }
@@ -42,6 +43,8 @@ acerta_player = function()
             {
                 if(oPlayer.player_invencivel == false)
                 {
+                    //ele vai criar o som da explosão
+                    audio_play_sound(snd_explosao, 1, 0)
                     oPlayer.perde_vida()
                     
                 }

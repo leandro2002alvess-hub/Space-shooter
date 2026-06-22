@@ -18,7 +18,7 @@ velv = 3
 
 //Criando um sistema de cooldown do tiro
 cooldown_tiro = 0
-cooldown_tiro_maximo = 25
+cooldown_tiro_maximo = 20
 
 
 //Criando um sistema de leveis para meu tiro mudar conforme o andar do jogo
@@ -131,7 +131,12 @@ perde_vida = function()
     vida--;
     if(vida <= 0) 
     { 
+      audio_play_sound(snd_explosao, 1, 0)
       instance_destroy()
+      //Se eu morri então ele roda a criação da particula de explosão
+      //ele vai criar o efeito da particula 
+      instance_create_layer(x, y, "Detalhes", oExplosao)   
+        
     }
     else 
     { 
