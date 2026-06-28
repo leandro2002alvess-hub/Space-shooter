@@ -1,0 +1,38 @@
+/// @description Inserir descrição aqui
+// Você pode escrever seu código neste editor
+
+// Inherit the parent event
+event_inherited();
+
+
+//Criando um metodo pra destruir o objeto powerup
+powerup_destroi = function()
+{
+    //Criando um sistema de colisao para destruir o power up
+    if(instance_place(x, y, oPlayer))
+    {
+        //Se meu power up colidir com o player
+        instance_destroy()
+        //então ele será destruido
+        //Ao colidir tambem irei fazer meu player ganhar um powerup pra vida
+        oPlayer.ganha_vida()
+        //Toda vez que eu colidir ele vai criar a particula do powerup
+        //ou seja será criado um efeito 
+        instance_create_layer(x, y, "Powerups", oParticula)
+    }
+    
+}
+
+velv = 3
+
+//movendo o powerup vida
+move_powerup = function()
+{
+    y += velv
+    //Criando um if para destruir meu objeto powerup vida
+    if(y > room_height)
+    {
+        instance_destroy()
+        //show_debug_message("vida destruida")
+    }
+}

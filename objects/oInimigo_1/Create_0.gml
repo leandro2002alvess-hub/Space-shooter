@@ -5,7 +5,7 @@
 cooldown_tiro_inimigo = 0
 //Por padrão ele receberá o valor de zero
 //o valor limite que pode ser atingindo será aleatorios entre esse irandom_range
-cooldown_tiro_maximo_inimigo = choose(irandom_range(30, 55), irandom_range(60, 195), irandom_range(60, 140));
+cooldown_tiro_maximo_inimigo = choose(irandom_range(75, 140), irandom_range(95, 195), irandom_range(110, 140));
 
 //Criando um metodo para nosso inimigo
 tiro_inimigo = function()
@@ -19,7 +19,7 @@ tiro_inimigo = function()
         var _tiro = instance_create_layer(x, y + 35, "Tiros_inimigos", oTiro_inimigo);
         //foi comentado o direciton pois sprite já está na posição correta
         //Sorteia um novo tempo para o PRÓXIMO tiro não ser igual
-        cooldown_tiro_maximo_inimigo = choose(irandom_range(30, 55), irandom_range(60, 195), irandom_range(60, 140));
+        cooldown_tiro_maximo_inimigo = choose(irandom_range(75, 140), irandom_range(95, 195), irandom_range(110, 140));
         //_tiro.direction = 270
         //fazendo o som do tiro
         audio_play_sound(snd_tiro_1, 1, 0)
@@ -37,7 +37,7 @@ colidindo_player = function()
     {
         //ele vai criar o efeito da particula
         instance_create_layer(x, y, "Detalhes", oExplosao)
-        
+        audio_play_sound(snd_explosao, 1, 0)
         
         //iremos verificar se temos a instancia escudo existindoWWAW
         if(instance_exists(oEscudo))
@@ -50,7 +50,7 @@ colidindo_player = function()
         {
             //iremos criar um novo else e dentro dele colocamos um if
             //ele vai ver se meu escudo e maior que zero
-            if(oPlayer.escudo > 0)
+            if(oPlayer.qtd_escudos_ativos > 0)
             { 
                 //se for então ele criará novos escudos
                 audio_play_sound(snd_shield, 1, 0)
@@ -83,7 +83,7 @@ morte_inimigo = function()
     //Criando um sistema de chances para dropar meu powerup
     var _chance = random(100)
     //Criando um if para deixar aleatorio os drops do powerup
-    if(_chance > 90)
+    if(_chance > 90 && oPlayer.level_tiro < oPlayer.level_tiro_max && instance_number(oPowerUp) == 0)
     {
         //se meu chance for maior que 90
         //então ele vai criar um powerup

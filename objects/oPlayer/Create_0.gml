@@ -15,6 +15,7 @@ invencivel_max = 60
 //Criando o sistema de movimentos do player
 velh = 3
 velv = 3
+vel_max = 6
 
 //Criando um sistema de cooldown do tiro
 cooldown_tiro = 0
@@ -25,6 +26,7 @@ cooldown_tiro_maximo = 20
 level_tiro = 1;
 //Criando um limitador para o level do tiro
 level_tiro_max = 3;
+
 
 //Criando um metodo pro tiro
 tiro_1 = function(_botao)
@@ -99,6 +101,90 @@ ganha_level_tiro = function()
     
 }
 
+//Criando um limitador para meus escudos
+qtd_escudos = 3
+qtd_escudos_ativos = 3
+//por padrão temos 3 escudos
+//criando uma variavel de limite pro meu escudo
+qtd_escudo_limite = 8
+
+
+//Criando uma função para ganhar escudo
+ganha_escudo = function()
+{
+    //se a minha quantidade de escudos por menor que a quantidade maxima
+    //antigamente esse if guardava a variavel escudo e agora ele utiliza qtd_escudos_ativos e qtd_escudos
+    if(qtd_escudos_ativos < qtd_escudos)
+    {
+        //então eu ganho escudos
+        qtd_escudos_ativos++
+    }
+    else if(qtd_escudos < qtd_escudo_limite)
+    {
+        //Criando um limite se a qtd_escudos e menor que o limite
+        //então eu não ganho, so passo a ganhar se eu perder 
+        qtd_escudos++
+        qtd_escudos_ativos++
+    }
+    
+}
+
+//Criando um limitador para meus escudos
+qtd_vidas = 3
+qtd_vidas_ativas = 3
+//por padrão temos 3 escudos
+//criando uma variavel de limite pro meu escudo
+qtd_vidas_limite = 8
+
+//Criando meu metodo ganha vida
+ganha_vida = function()
+{
+    //se a minha quantidade de vidas  por menor que a quantidade maxima
+    //antigamente esse if guardava a variavel vida e agora ele utiliza qtd_vidas_ativas e     if(qtd_vidas_ativas < qtd_vidas)
+    if(qtd_vidas_ativas < qtd_vidas)
+    {
+        //então eu ganho escudos
+        qtd_vidas_ativas++
+    }
+    else if(qtd_vidas < qtd_vidas_limite)
+    {
+        //Criando um limite se a qtd_vidas++ e menor que o limite
+        //então eu não ganho, so passo a ganhar se eu perder 
+        qtd_vidas++
+        qtd_vidas_ativas++
+    }
+}
+
+//Criando mais um metodo para nosso powerup speed
+ganha_speed = function()
+{
+    //se meu velv for menor que meu vel max e velvh for menor que meu vel max
+    if(velv < vel_max && velh < vel_max)
+    {
+        //então ambos vão ganhar velocidade de 0.3
+        velv += 0.3
+        velh += 0.3
+    }
+    
+}
+
+//Criando as variaveis para limitar os drones
+qtd_drones = 0
+//definindo um limite de quantos drones posso ter
+qtd_drones_limite = 4
+
+//Criando mais um metodo para o nosso sistema de powerups
+ganha_naves = function()
+{
+    //se minha qtd_drones e menor que qtd_drones_limite
+    if(qtd_drones < qtd_drones_limite)
+    {
+        //então eu ganho um drone
+        qtd_drones += 1
+        //chamando o instance create para gerar esse meu drone 
+        instance_create_layer(x, y, "Drones", oDrone)
+    }
+}
 
 //Criando um metodo para desenhar nosso icone de vida
 //Chamando um parametro dentro do meu metodo _icone = spr_vida
@@ -128,8 +214,9 @@ desenha_icones = function(_icone = spr_vida, qtd = 1, _y = 20)
 //criando um metodo para perder vida 
 perde_vida = function()
 {
-    vida--;
-    if(vida <= 0) 
+    //mudando as variaveis de vida para qtd_vidas_ativas
+    qtd_vidas_ativas--;
+    if(qtd_vidas_ativas <= 0) 
     { 
       audio_play_sound(snd_explosao, 1, 0)
       instance_destroy()
@@ -150,9 +237,10 @@ perde_vida = function()
 //Criando um metodo para ativar meu escudo
 perde_escudo = function()
 {
-    escudo--;
-    if(escudo <= 0)
+    //mudando as variaveis de escudo para qtd_escudos_ativos
+    qtd_escudos_ativos--;
+    if(qtd_escudos_ativos <= 0)
     {
-        //image_speed = 0
+       qtd_escudos_ativos = 0;
     }
 }

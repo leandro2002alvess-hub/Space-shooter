@@ -44,7 +44,7 @@ colidindo_player = function()
     {
         //ele vai criar o efeito da particula
         instance_create_layer(x, y, "Detalhes", oExplosao)
-        
+        audio_play_sound(snd_explosao, 1, 0)
         
         //iremos verificar se temos a instancia escudo existindoWWAW
         if(instance_exists(oEscudo))
@@ -56,7 +56,7 @@ colidindo_player = function()
         {
             //iremos criar um novo else e dentro dele colocamos um if
             //ele vai ver se meu escudo e maior que zero
-            if(oPlayer.escudo > 0)
+            if(oPlayer.qtd_escudos_ativos > 0)
             { 
                 //se for então ele criará novos escudos
                 instance_create_layer(x, y, "Player", oEscudo)
@@ -87,19 +87,19 @@ morte_inimigo = function()
     instance_create_layer(x, y, "Detalhes", oExplosao)
     audio_play_sound(snd_explosao, 1, 0)
     
-    //Criando um sistema de chances para dropar meu powerup
-    var _chance = random(100)
-    //Criando um if para deixar aleatorio os drops do powerup
-    if(_chance > 90)
-    {
-        //se meu chance for maior que 90
-        //então ele vai criar um powerup
-        instance_create_layer(x, y, "Powerups", oPowerUp)
-    }
     if(vida <= 0)
     {
-        //logo apos isso ele será destruido
-        instance_destroy()
+        //Criando um sistema de chances para dropar meu powerup
+       var _chance = random(100)
+       //Criando um if para deixar aleatorio os drops do powerup
+       if(_chance > 90 && oPlayer.level_tiro < oPlayer.level_tiro_max && instance_number(oPowerUp) == 0)
+       {
+           //se meu chance for maior que 90
+           //então ele vai criar um powerup
+           instance_create_layer(x, y, "Powerups", oPowerUp)
+       }
+       //logo apos isso ele será destruido
+       instance_destroy()
     }
     
         
@@ -187,4 +187,17 @@ maquina_estados = function()
         }    
 }
 
+}
+
+
+//Criando um sistema para ver o inimigo foi criado em sequencia
+feito_em_sequence = in_sequence
+
+//Criando um metodo para ver se fui criado na sequencia
+cria_sequence = function()
+{
+    if(!in_sequence && feito_em_sequence)
+    {
+        instance_destroy()
+    }
 }

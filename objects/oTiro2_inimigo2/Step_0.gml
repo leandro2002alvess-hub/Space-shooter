@@ -18,9 +18,11 @@ if (y > room_height + 64)
 {
     instance_destroy();
     //Debugando para ver se o tiro foi destruido
-    show_debug_message("Tiro destruido no topo!");
+    //show_debug_message("Tiro destruido no topo!");
     //Se eu sair da room o tiro acaba
 }
 
 //Chamando o metodo dentro do step do objeto tiro
 acerta_player()
+
+acerta_drone()

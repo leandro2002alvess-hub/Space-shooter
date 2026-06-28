@@ -31,3 +31,5 @@ causa_dano_inimigo = function()
         instance_destroy()
     }
 }
+
+//Criando um sistema de colisão com o tiro do inimigo

@@ -32,7 +32,7 @@ acerta_player = function()
         {
             //iremos criar um novo else e dentro dele colocamos um if
             //ele vai ver se meu escudo e maior que zero
-            if(oPlayer.escudo > 0)
+            if(oPlayer.qtd_escudos_ativos > 0)
             { 
                 //se for então ele criará novos escudos
                 instance_create_layer(x, y, "Player", oEscudo)
@@ -53,4 +53,30 @@ acerta_player = function()
         instance_destroy()
     }
     
+}
+
+
+acerta_drone = function()
+{
+    // 1. Salvamos o drone exato que levou o tiro nesta variável
+    var _drone = instance_place(x, y, oDrone);
+    
+    // 2. Se a colisão aconteceu (se _drone existir)
+    if(_drone)
+    {
+        instance_create_layer(x, y, "Detalhes", oParticula)
+        audio_play_sound(snd_explosao, 1, 0)
+        
+        // Aplica o dano direto no drone que foi atingido
+        _drone.drone_vida--; 
+        
+        // 3. Trocamos 'oDrone' por '_drone' para checar o drone certo!
+        if(_drone.drone_vida <= 0)
+        {
+            audio_play_sound(snd_explosao, 1, 0)
+            _drone.morte_drone()
+        }
+        
+        instance_destroy();
+    }
 }

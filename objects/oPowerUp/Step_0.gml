@@ -2,3 +2,5 @@
 // Você pode escrever seu código neste editor
 
 powerup_destroi()
+
+move_power_up()
