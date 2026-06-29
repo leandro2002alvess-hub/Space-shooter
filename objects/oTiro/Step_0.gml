@@ -24,3 +24,5 @@ if (y < 0)
 
 //chamando o metodo dentro do step do tiro
 causa_dano_inimigo()
+
+colide_tiro()

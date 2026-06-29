@@ -1,21 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"oTiro_inimigo1",
+  "%Name":"oScreenshake",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"oTiro_inimigo1",
+  "name":"oScreenshake",
   "overriddenProperties":[],
   "parent":{
-    "name":"Inimigos",
-    "path":"folders/Objects/Inimigos.yy",
+    "name":"Detalhes",
+    "path":"folders/Objects/Detalhes.yy",
   },
-  "parentObjectId":{
-    "name":"oTiro_inimigo",
-    "path":"objects/oTiro_inimigo/oTiro_inimigo.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -33,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_inimigo_tiro_contorno_1",
-    "path":"sprites/spr_inimigo_tiro_contorno_1/spr_inimigo_tiro_contorno_1.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

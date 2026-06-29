@@ -3,7 +3,7 @@
 
 
 //criando uma variavel de vida pro inimigo3
-vida = 1
+vida = 7
 
 velv = 6
 
@@ -26,8 +26,9 @@ colidindo_player = function()
         //ele vai criar o efeito da particula
         instance_create_layer(x, y, "Detalhes", oExplosao)
         audio_play_sound(snd_explosao, 1, 0)
+        oScreenshake.treme = 20
         
-        //iremos verificar se temos a instancia escudo existindoWWAW
+        //iremos verificar se temos a instancia escudo existindo
         if(instance_exists(oEscudo))
         {
             //se tivermos ela ativa então ela será destruida pelo impacto do tiro
@@ -67,6 +68,7 @@ morte_inimigo = function()
     //ele vai criar o efeito da particula
     instance_create_layer(x, y, "Detalhes", oExplosao)
     audio_play_sound(snd_explosao, 1, 0)
+    oScreenshake.treme = 10
     
     if(vida <= 0)
     { 

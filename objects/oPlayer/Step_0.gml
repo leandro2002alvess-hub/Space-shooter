@@ -69,13 +69,13 @@ if(level_tiro == 1)
 //senao se, level tiro for igual a 2
 else if(level_tiro == 2)
 {
-    cooldown_tiro_maximo = 15
+    cooldown_tiro_maximo = 30
     //então ele rodará meu segundo tipo de tiro
     tiro_2(space)
 }
 else if(level_tiro == 3)
 {
-    cooldown_tiro_maximo = 5
+    cooldown_tiro_maximo = 15
     //então ele rodará meu segundo tipo de tiro
     tiro_3(space)
 }

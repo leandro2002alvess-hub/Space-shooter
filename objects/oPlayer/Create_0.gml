@@ -216,6 +216,8 @@ perde_vida = function()
 {
     //mudando as variaveis de vida para qtd_vidas_ativas
     qtd_vidas_ativas--;
+    //Chamando meu metodo screenshake
+    oScreenshake.treme = 10
     if(qtd_vidas_ativas <= 0) 
     { 
       audio_play_sound(snd_explosao, 1, 0)
@@ -223,7 +225,7 @@ perde_vida = function()
       //Se eu morri então ele roda a criação da particula de explosão
       //ele vai criar o efeito da particula 
       instance_create_layer(x, y, "Detalhes", oExplosao)   
-        
+      oScreenshake.treme = 40  
     }
     else 
     { 
@@ -239,6 +241,7 @@ perde_escudo = function()
 {
     //mudando as variaveis de escudo para qtd_escudos_ativos
     qtd_escudos_ativos--;
+    oScreenshake.treme = 15
     if(qtd_escudos_ativos <= 0)
     {
        qtd_escudos_ativos = 0;

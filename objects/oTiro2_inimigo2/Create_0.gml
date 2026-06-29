@@ -80,3 +80,14 @@ acerta_drone = function()
         instance_destroy();
     }
 }
+
+//Criando um metodo de morte do tiro
+morte_tiro = function()
+{
+    if(instance_place(x, y, oTiro))
+    {
+        instance_create_layer(x, y, "Detalhes", oParticula)
+        audio_play_sound(snd_explosao, 1, 0)
+        instance_destroy()
+    }
+}

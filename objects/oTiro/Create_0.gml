@@ -33,3 +33,17 @@ causa_dano_inimigo = function()
 }
 
 //Criando um sistema de colisão com o tiro do inimigo
+colide_tiro = function()
+{
+    var _tiro_atingido = instance_place(x, y, oTiro_inimigo);
+    if(_tiro_atingido != noone)
+    {
+        //Criando o efeito de particula do tiro do player
+        instance_create_layer(x, y, "Detalhes", oParticula)
+        audio_play_sound(snd_explosao, 1, 0)
+        _tiro_atingido.morte_tiro()
+        //destruindo o tiro ao colidir com o inimigo
+        instance_destroy()
+        
+    }
+}

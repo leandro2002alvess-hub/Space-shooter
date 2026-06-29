@@ -38,6 +38,7 @@ colidindo_player = function()
         //ele vai criar o efeito da particula
         instance_create_layer(x, y, "Detalhes", oExplosao)
         audio_play_sound(snd_explosao, 1, 0)
+        oScreenshake.treme = 20
         
         //iremos verificar se temos a instancia escudo existindoWWAW
         if(instance_exists(oEscudo))
@@ -80,6 +81,7 @@ morte_inimigo = function()
     //ele vai criar o efeito da particula
     instance_create_layer(x, y, "Detalhes", oExplosao)
     audio_play_sound(snd_explosao, 1, 0)
+    oScreenshake.treme = 10
     //Criando um sistema de chances para dropar meu powerup
     var _chance = random(100)
     //Criando um if para deixar aleatorio os drops do powerup
