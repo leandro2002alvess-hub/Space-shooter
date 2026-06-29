@@ -13,3 +13,6 @@ var gui_height = display_get_gui_height()
 //Chamando meu metodo de desenhar icones dentro do draw gui
 desenha_icones(spr_vida, qtd_vidas_ativas, gui_height - 30);
 desenha_icones(spr_escudo, qtd_escudos_ativos, gui_height - 80)
+
+
+

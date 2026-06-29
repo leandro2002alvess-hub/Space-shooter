@@ -75,6 +75,9 @@ colidindo_player = function()
     
 }
 
+//Criando um sistema para deixar o player branco
+flash_tempo = 0
+
 //Criando um sistema de morte pro inimigo
 morte_inimigo = function()
 {
@@ -82,6 +85,8 @@ morte_inimigo = function()
     instance_create_layer(x, y, "Detalhes", oExplosao)
     audio_play_sound(snd_explosao, 1, 0)
     oScreenshake.treme = 10
+    //Criando um sistema para deixar o player branco
+    flash_tempo = 15
     //Criando um sistema de chances para dropar meu powerup
     var _chance = random(100)
     //Criando um if para deixar aleatorio os drops do powerup

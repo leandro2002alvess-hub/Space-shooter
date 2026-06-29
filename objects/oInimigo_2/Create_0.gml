@@ -80,6 +80,8 @@ colidindo_player = function()
     
 }
 
+flash_tempo = 0
+
 //Criando um sistema de morte pro inimigo
 morte_inimigo = function()
 {
@@ -88,7 +90,7 @@ morte_inimigo = function()
     instance_create_layer(x, y, "Detalhes", oExplosao)
     audio_play_sound(snd_explosao, 1, 0)
     oScreenshake.treme = 10
-    
+    flash_tempo = 10
     if(vida <= 0)
     {
         //Criando um sistema de chances para dropar meu powerup

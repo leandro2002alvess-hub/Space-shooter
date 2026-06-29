@@ -6,3 +6,8 @@ cria_sequence()
 colidindo_player()
 
 maquina_estados()
+
+if(flash_tempo > 0) 
+{
+    flash_tempo--
+}

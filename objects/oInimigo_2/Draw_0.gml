@@ -9,3 +9,15 @@ if(global.debug)
     draw_text(x, y + 20, "Vida: " + string(estado))
     
 }
+
+
+if(flash_tempo > 0)
+{
+    shader_set(sh_branco)
+    draw_self()
+    shader_reset()
+}
+else 
+{
+    draw_self()	
+}

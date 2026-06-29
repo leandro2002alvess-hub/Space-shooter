@@ -85,6 +85,7 @@
     {"id":{"name":"sq_wave3","path":"sequences/sq_wave3/sq_wave3.yy",},},
     {"id":{"name":"sh_branco","path":"shaders/sh_branco/sh_branco.yy",},},
     {"id":{"name":"snd_explosao","path":"sounds/snd_explosao/snd_explosao.yy",},},
+    {"id":{"name":"snd_musicgame","path":"sounds/snd_musicgame/snd_musicgame.yy",},},
     {"id":{"name":"snd_shield_down","path":"sounds/snd_shield_down/snd_shield_down.yy",},},
     {"id":{"name":"snd_shield","path":"sounds/snd_shield/snd_shield.yy",},},
     {"id":{"name":"snd_tiro_1","path":"sounds/snd_tiro_1/snd_tiro_1.yy",},},

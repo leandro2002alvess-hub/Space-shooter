@@ -7,3 +7,8 @@ tiro_inimigo()
 colidindo_player()
 
 cria_sequence()
+
+if(flash_tempo > 0) 
+{
+    flash_tempo--
+}

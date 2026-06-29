@@ -1,6 +1,9 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 
+//Tocando a musica do jogo
+audio_play_sound(snd_musicgame, 1, 1)
+
 //Criando o sistema de vida e escudo do player
 vida = 3
 escudo = 3
@@ -211,6 +214,9 @@ desenha_icones = function(_icone = spr_vida, qtd = 1, _y = 20)
     
 }
 
+//Criando um sistema para deixar o player branco
+flash_tempo = 0
+
 //criando um metodo para perder vida 
 perde_vida = function()
 {
@@ -218,14 +224,16 @@ perde_vida = function()
     qtd_vidas_ativas--;
     //Chamando meu metodo screenshake
     oScreenshake.treme = 10
+    flash_tempo = 10
     if(qtd_vidas_ativas <= 0) 
     { 
       audio_play_sound(snd_explosao, 1, 0)
-      instance_destroy()
+      
       //Se eu morri então ele roda a criação da particula de explosão
       //ele vai criar o efeito da particula 
       instance_create_layer(x, y, "Detalhes", oExplosao)   
       oScreenshake.treme = 40  
+      instance_destroy() 
     }
     else 
     { 
